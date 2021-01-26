@@ -65,18 +65,33 @@
 
 <div class="row offset-md-2 col-md-8">
 	             <?php 
-                       if(!empty($_SESSION['success']))
-                       {
-                            echo "<script>
-                                            Swal.fire(
-											  'Success?',
-											  'New Student Successfully Added',
-											  'success'
-											);
-								   </script>";
+	                       if(!empty($_SESSION['success']))
+	                       {
+	                            echo "<script>
+	                                            Swal.fire(
+												  'Success?',
+												  'New Student Successfully Added',
+												  'success'
+												);
+									   </script>";
 
-                       	    unset($_SESSION['success']);
-                       }
+	                       	    unset($_SESSION['success']);
+	                       }
+
+
+
+	                       if(!empty($_SESSION['deleted']))
+	                       {
+	                            echo "<script>
+	                                            Swal.fire(
+												  'Success?',
+												  'Student Successfully Deleted',
+												  'success'
+												);
+									   </script>";
+
+	                       	    unset($_SESSION['success']);
+	                       }
 	              ?>
 
 
@@ -112,7 +127,7 @@
 					         	  <td><?php echo $row['city']; ?></td>
 					         	  <td><?php echo $row['age']; ?></td>
 					         	  <td><button class="btn btn-md btn-info">Edit</button></td>
-					         	  <td><button class="btn btn-md btn-danger">Delete</button></td>
+					         	  <td><a class="btn btn-md btn-danger" href="delete_student.php?sid=<?php echo $row['id'];?>">Delete</a></td>
 					         </tr>
 
 				    <?php
