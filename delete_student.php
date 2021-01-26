@@ -1,12 +1,12 @@
 <?php 
-      session_start();
+            session_start();
 
-      $servername = "localhost";
-	  $username = "root";
-	  $password = "";
-	  $dbname = "pwa";
+            $servername = "localhost";
+        	  $username = "root";
+        	  $password = "";
+        	  $dbname = "pwa";
 
-	  $conn = new mysqli($servername, $username, $password, $dbname);
+        	  $conn = new mysqli($servername, $username, $password, $dbname);
 ?>
 
 

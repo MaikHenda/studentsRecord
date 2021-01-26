@@ -7,6 +7,8 @@
 	  $dbname = "pwa";
 
 	  $conn = new mysqli($servername, $username, $password, $dbname);
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -90,7 +92,21 @@
 												);
 									   </script>";
 
-	                       	    unset($_SESSION['success']);
+	                       	    unset($_SESSION['deleted']);
+	                       }
+
+
+	                       if(!empty($_SESSION['successfully_updated']))
+	                       {
+	                            echo "<script>
+	                                            Swal.fire(
+												  'Success?',
+												  'Student Successfully updated',
+												  'success'
+												);
+									   </script>";
+
+	                       	    unset($_SESSION['successfully_updated']);
 	                       }
 	              ?>
 
@@ -126,7 +142,7 @@
 					         	  <td><?php echo $row['phone']; ?></td>
 					         	  <td><?php echo $row['city']; ?></td>
 					         	  <td><?php echo $row['age']; ?></td>
-					         	  <td><button class="btn btn-md btn-info">Edit</button></td>
+					         	  <td><a class="btn btn-md btn-info" href="edit_students.php?sid=<?php echo $row['id'];?>">Edit</a></td>
 					         	  <td><a class="btn btn-md btn-danger" href="delete_student.php?sid=<?php echo $row['id'];?>">Delete</a></td>
 					         </tr>
 
